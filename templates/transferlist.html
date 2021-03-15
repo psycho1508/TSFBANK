@@ -1,0 +1,38 @@
+ {% extends 'base.html' %}
+ {% load static %}
+ {% block content %} 
+ <br><br><br><br><br>
+ 
+     <div class='container'>
+        <div class="app-table">
+        <table class= "table table-dark table-hover">
+            <thead>
+        
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Current Balance</th>
+                    <th>Date Join</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+            
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.current_credit}}</td>
+                    <td>{{user.date}}</td>
+                    <td>
+                     <a href="{% url 'userView' name=user.name %}" class='btn btn-success'>Transfer</a>
+                    </td>
+
+                </tr>
+             {% endfor %} 
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+  {% endblock  %}
